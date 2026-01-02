@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JP Plumbing | Parow Valley, Cape Town</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --primary:#005f73;
+      --secondary:#0a9396;
+      --accent:#94d2bd;
+      --light:#e9f5f4;
+      --dark:#001219;
+      --text:#24323a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg, var(--light), #f7fbfc);
+    }
+    header{
+      background:linear-gradient(120deg, var(--primary), var(--secondary));
+      color:#fff;
+      padding:40px 20px;
+      text-align:center;
+    }
+    header h1{margin:0; font-size:2rem; letter-spacing:0.5px}
+    header p{margin:8px 0 0; opacity:0.9}
+    nav{
+      display:flex; flex-wrap:wrap; justify-content:center;
+      background:var(--dark);
+      position:sticky; top:0; z-index:10;
+    }
+    nav a{
+      color:#fff; text-decoration:none; padding:14px 18px; font-weight:600;
+      border-bottom:3px solid transparent;
+    }
+    nav a:hover{background:#02202a}
+    nav a.active{border-bottom-color:var(--accent); color:var(--accent)}
+    main{max-width:1100px; margin:0 auto; padding:20px}
+    section{
+      display:none; background:#fff; border:1px solid #e6eef1; border-radius:12px;
+      padding:28px; box-shadow:0 10px 24px rgba(0,0,0,0.06); margin:24px 0;
+    }
+    section.active{display:block}
+    h2{color:var(--primary); margin-top:0}
+    .grid{
+      display:grid; gap:20px;
+    }
+    .grid.two{grid-template-columns:repeat(2,1fr)}
+    .card{
+      background:var(--light); border-radius:10px; padding:16px; border:1px solid #dbe9ea;
+    }
+    .images{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:16px;
+    }
+    .images figure{
+      margin:0; border-radius:12px; overflow:hidden; border:1px solid #e3eef0; background:#fafcfd;
+    }
+    .images img{
+      width:100%; height:220px; object-fit:cover; display:block;
+      transition:transform .3s ease;
+    }
+    .images img:hover{transform:scale(1.03)}
+    .info{
+      display:grid; gap:12px; margin-top:12px;
+    }
+    .info p{margin:0}
+    .badge{
+      display:inline-block; background:var(--accent); color:#083d3c; padding:6px 10px; border-radius:999px; font-weight:700; font-size:0.85rem;
+    }
+    ul{margin:0; padding-left:18px}
+    li{margin:6px 0}
+    .hours{
+      width:100%; border-collapse:collapse; margin-top:10px;
+    }
+    .hours th, .hours td{
+      border:1px solid #e6eef1; padding:10px; text-align:left;
+    }
+    .cta{
+      display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;
+    }
+    .btn{
+      background:var(--secondary); color:#fff; padding:12px 16px; border:none; border-radius:8px;
+      text-decoration:none; font-weight:700; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn.outline{
+      background:transparent; color:var(--secondary); border:2px solid var(--secondary);
+    }
+    footer{
+      text-align:center; padding:24px; color:#567; font-size:0.95rem;
+    }
+    @media (max-width:800px){
+      .grid.two{grid-template-columns:1fr}
+      .images{grid-template-columns:1fr}
+    }
+  </style>
+  <script>
+    function showPage(id){
+      document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+      document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      const link = document.querySelector(`nav a[href="#${id}"]`);
+      if(link) link.classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+    window.addEventListener('DOMContentLoaded',()=>showPage('home'));
+  </script>
+</head>
+<body>
+  <header>
+    <h1>JP Plumbing</h1>
+    <p>Unit No: 13, 36 Joubert St, Parow Valley, Cape Town, 7500 • Open 24 hours</p>
+  </header>
+
+  <nav>
+    <a href="#home" onclick="showPage('home')">Home</a>
+    <a href="#services" onclick="showPage('services')">Services</a>
+    <a href="#about" onclick="showPage('about')">About</a>
+    <a href="#hours" onclick="showPage('hours')">Hours</a>
+    <a href="#contact" onclick="showPage('contact')">Contact</a>
+  </nav>
+
+  <main>
+    <!-- Home -->
+    <section id="home" class="active">
+      <h2>Reliable plumbers serving Parow Valley and greater Cape Town</h2>
+      <p>From emergency leaks to full installations, JP Plumbing delivers fast, professional service backed by quality workmanship and fair pricing—24/7, including public holidays.</p>
+      <div class="images">
+        <figure>
+          <img src="picture3.jpg" alt="Plumber working under a kitchen sink">
+        </figure>
+        <figure>
+          <img src="picture4.jpg" alt="Copper pipes and plumbing fittings on a blueprint">
+        </figure>
+      </div>
+      <div class="cta">
+        <a class="btn" href="tel:0732702710">Call 073 270 2710</a>
+        <a class="btn outline" href="#services" onclick="showPage('services')">View services</a>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <h2>Our services</h2>
+      <div class="grid two">
+        <div class="card">
+          <span class="badge">Emergency 24/7</span>
+          <ul>
+            <li>Burst pipe repair and leak detection</li>
+            <li>Blocked drains and sewer clearing</li>
+            <li>Geyser faults and urgent water outages</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge">Installations</span>
+          <ul>
+            <li>Geyser replacements and upgrades</li>
+            <li>Bathroom and kitchen plumbing</li>
+            <li>Water pressure regulators and filters</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge">Maintenance</span>
+          <ul>
+            <li>Taps, mixers, traps, and valves</li>
+            <li>Pipe rerouting and insulation</li>
+            <li>Annual checks and preventative care</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge">Commercial</span>
+          <ul>
+            <li>Retail and office plumbing support</li>
+            <li>Compliance and safety checks</li>
+            <li>Scheduled service plans</li>
+          </ul>
+        </div>
+      </div>
+      <div class="images">
+        <figure>
+          <img src="picture1.jpg" alt="Close-up of hands repairing chrome drain trap">
+        </figure>
+        <figure>
+          <img src="picture2.jpg" alt="Plumbing tools including wrenches and fittings">
+        </figure>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About JP Plumbing</h2>
+      <div class="info">
+        <p><strong>Local roots:</strong> Based at Unit No: 13, 36 Joubert St, Parow Valley, we serve Cape Town’s Northern Suburbs and surrounds.</p>
+        <p><strong>Values:</strong> Honest quotes, tidy work, and durable parts. We aim to
+
+     
